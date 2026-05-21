@@ -1,0 +1,474 @@
+/* =========================================================
+   JOVENSFLIX — Estilo inspirado na Netflix
+   Tema escuro com vermelho #E50914 como destaque
+   ========================================================= */
+
+:root {
+  --bg:        #0a0a0a;
+  --bg-elev:   #181818;
+  --bg-card:   #1f1f1f;
+  --red:       #E50914;
+  --red-dark:  #B0060F;
+  --red-glow:  rgba(229, 9, 20, 0.4);
+  --text:      #ffffff;
+  --text-dim:  #b3b3b3;
+  --text-low:  #6e6e6e;
+  --shadow:        0 8px 30px rgba(0, 0, 0, 0.6);
+  --shadow-card:   0 6px 18px rgba(0, 0, 0, 0.5);
+  --shadow-red:    0 10px 40px rgba(229, 9, 20, 0.35);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  background-image:
+    radial-gradient(ellipse at top, #1a0608 0%, #0a0a0a 55%),
+    linear-gradient(180deg, #0a0a0a 0%, #050505 100%);
+  background-attachment: fixed;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== HEADER ===== */
+.topbar {
+  padding: 22px 20px 12px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+}
+
+.logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  letter-spacing: 2px;
+  color: var(--text);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.logo span {
+  color: var(--red);
+  text-shadow: 0 0 25px var(--red-glow);
+}
+
+.tagline {
+  color: var(--text-dim);
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* ===== HERO ===== */
+.hero {
+  padding: 8px 0 28px;
+}
+
+.hero-card {
+  position: relative;
+  margin: 0 16px;
+  min-height: 460px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  background: var(--bg-card);
+  isolation: isolate;
+}
+
+.hero-photo {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center top;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      to top,
+      rgba(0,0,0,0.95) 0%,
+      rgba(0,0,0,0.75) 25%,
+      rgba(0,0,0,0.25) 55%,
+      rgba(0,0,0,0.45) 100%
+    );
+}
+
+.hero-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 24px 22px;
+  z-index: 2;
+}
+
+.hero-badge {
+  display: inline-block;
+  background: var(--red);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 5px 11px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 14px rgba(229, 9, 20, 0.4);
+}
+
+.hero-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.6rem, 10vw, 4rem);
+  line-height: 0.95;
+  letter-spacing: 1.5px;
+  margin-bottom: 6px;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
+}
+
+.hero-legend {
+  color: var(--text-dim);
+  font-size: 0.92rem;
+  margin-bottom: 18px;
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.4;
+}
+
+.hero-date-label {
+  color: var(--text-dim);
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* Countdown */
+.countdown {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.countdown-unit {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 10px;
+  padding: 12px 4px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.countdown-value {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.9rem;
+  color: var(--red);
+  line-height: 1;
+  text-shadow: 0 0 18px var(--red-glow);
+}
+
+.countdown-label {
+  font-size: 0.62rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  margin-top: 4px;
+  font-weight: 600;
+}
+
+/* Variante: aniversário HOJE */
+.hero-card.birthday-today {
+  box-shadow: var(--shadow-red);
+  animation: pulse-red 2.8s ease-in-out infinite;
+}
+
+@keyframes pulse-red {
+  0%, 100% { box-shadow: 0 8px 30px rgba(229, 9, 20, 0.35); }
+  50%      { box-shadow: 0 10px 55px rgba(229, 9, 20, 0.75); }
+}
+
+.celebration {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.6rem, 6vw, 2.4rem);
+  color: var(--red);
+  text-shadow: 0 0 30px var(--red-glow), 0 4px 18px rgba(0, 0, 0, 0.6);
+  letter-spacing: 2px;
+  margin: 6px 0 4px;
+  animation: bounce 1.6s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+
+.confetti {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.confetti span {
+  position: absolute;
+  top: -10px;
+  width: 8px;
+  height: 14px;
+  background: var(--red);
+  opacity: 0.85;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0%   { transform: translateY(-20px) rotate(0deg);   opacity: 0; }
+  10%  { opacity: 1; }
+  100% { transform: translateY(520px) rotate(720deg); opacity: 0; }
+}
+
+/* ===== ROWS / TÍTULOS ===== */
+.row {
+  padding: 22px 0;
+}
+
+.row-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.55rem;
+  letter-spacing: 1.8px;
+  padding: 0 20px;
+  margin-bottom: 14px;
+  position: relative;
+  display: inline-block;
+  font-weight: 400;
+}
+
+.row-title::after {
+  content: '';
+  display: block;
+  width: 36px;
+  height: 3px;
+  background: var(--red);
+  border-radius: 2px;
+  margin-top: 4px;
+  box-shadow: 0 0 12px var(--red-glow);
+}
+
+/* Carrossel horizontal */
+.row-cards {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 4px 20px 18px;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.row-cards::-webkit-scrollbar { display: none; }
+
+/* Grade de todos */
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  padding: 4px 20px 8px;
+}
+
+/* ===== CARD ===== */
+.card {
+  flex: 0 0 148px;
+  aspect-ratio: 2 / 3;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  background: var(--bg-card);
+  box-shadow: var(--shadow-card);
+  cursor: pointer;
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+  scroll-snap-align: start;
+  isolation: isolate;
+}
+
+.grid-cards .card {
+  flex: unset;
+  width: 100%;
+}
+
+.card:hover,
+.card:focus-visible,
+.card:active {
+  transform: scale(1.06);
+  box-shadow: 0 14px 38px rgba(229, 9, 20, 0.28);
+  z-index: 5;
+}
+
+.card-photo {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center top;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.95) 0%,
+    rgba(0, 0, 0, 0.55) 35%,
+    transparent 62%
+  );
+}
+
+.card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 12px 12px 14px;
+  z-index: 2;
+}
+
+.card-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.25rem;
+  letter-spacing: 0.5px;
+  line-height: 1.05;
+  margin-bottom: 4px;
+}
+
+.card-date {
+  color: var(--text-dim);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.card-countdown {
+  color: var(--red);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.card-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: var(--red);
+  box-shadow: 0 0 8px var(--red-glow);
+  z-index: 3;
+  transition: width 0.4s ease;
+}
+
+/* Cartão de aniversariante de hoje */
+.card.today {
+  outline: 2px solid var(--red);
+  outline-offset: -2px;
+  box-shadow: 0 0 28px var(--red-glow);
+}
+
+.card.today::before {
+  content: 'HOJE';
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: var(--red);
+  color: #fff;
+  font-size: 0.58rem;
+  font-weight: 800;
+  padding: 3px 7px;
+  border-radius: 4px;
+  z-index: 4;
+  letter-spacing: 1.5px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+/* ===== PLACEHOLDER (sem foto) ===== */
+.placeholder {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 4.5rem;
+  color: rgba(255, 255, 255, 0.92);
+  letter-spacing: 1px;
+  text-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+.hero-photo .placeholder {
+  font-size: clamp(7rem, 28vw, 13rem);
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  padding: 36px 24px 28px;
+  text-align: center;
+  color: var(--text-low);
+  font-size: 0.78rem;
+  letter-spacing: 0.5px;
+}
+
+.heart { color: var(--red); }
+
+/* ===== ENTRADA ANIMADA ===== */
+.fade-in {
+  animation: fadeUp 0.6s ease both;
+}
+.fade-in.delay-1 { animation-delay: 0.08s; }
+.fade-in.delay-2 { animation-delay: 0.16s; }
+.fade-in.delay-3 { animation-delay: 0.24s; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== BREAKPOINTS ===== */
+@media (min-width: 600px) {
+  .grid-cards { grid-template-columns: repeat(3, 1fr); }
+  .card { flex: 0 0 160px; }
+}
+
+@media (min-width: 900px) {
+  .topbar { padding: 28px 48px 16px; }
+  .logo { font-size: 2.4rem; }
+  .tagline { font-size: 0.8rem; }
+
+  .hero-card { margin: 0 48px; min-height: 540px; }
+  .hero-content { padding: 36px 40px; max-width: 720px; }
+  .hero-legend { font-size: 1rem; max-width: 540px; }
+  .countdown { max-width: 480px; gap: 10px; }
+  .countdown-unit { padding: 14px 6px; }
+  .countdown-value { font-size: 2.4rem; }
+  .countdown-label { font-size: 0.7rem; }
+
+  .row-title { padding: 0 48px; font-size: 1.85rem; }
+  .row-cards { padding: 4px 48px 18px; gap: 14px; }
+  .grid-cards { padding: 4px 48px 8px; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .card { flex: 0 0 190px; }
+  .card-name { font-size: 1.45rem; }
+}
+
+@media (min-width: 1280px) {
+  .hero-card { max-width: 1180px; margin: 0 auto; }
+  .grid-cards { grid-template-columns: repeat(6, 1fr); }
+  .row-cards { padding-left: max(48px, calc((100vw - 1180px) / 2)); padding-right: max(48px, calc((100vw - 1180px) / 2)); }
+  .row-title, .topbar { padding-left: max(48px, calc((100vw - 1180px) / 2)); padding-right: max(48px, calc((100vw - 1180px) / 2)); }
+}

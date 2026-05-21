@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a0a0a">
+  <title>JOVENSFLIX • Aniversários</title>
+
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <h1 class="logo">JOVENS<span>FLIX</span></h1>
+    <p class="tagline">Aniversários em destaque</p>
+  </header>
+
+  <main>
+    <!-- Destaque (próximo aniversariante OU aniversariante do dia) -->
+    <section id="hero" class="hero"></section>
+
+    <!-- Carrossel de próximos -->
+    <section class="row">
+      <h2 class="row-title">Próximos Aniversários</h2>
+      <div id="upcoming" class="row-cards"></div>
+    </section>
+
+    <!-- Grade com todos os membros -->
+    <section class="row">
+      <h2 class="row-title">Todos os Membros</h2>
+      <div id="all-members" class="grid-cards"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Feito com <span class="heart">♥</span> para os Jovens</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
